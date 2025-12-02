@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MyFreightTracker PDF Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <img
+          src="./myfreighttracker-logo.svg"
+          alt="MyFreightTracker logo"
+          class="brand-logo"
+        />
+        <div class="brand-text">
+          <div class="brand-line">
+            <span class="brand-main">MyFreight</span>
+            <span class="brand-accent">Tracker</span>
+          </div>
+          <div class="app-subtitle">
+            Read, annotate &amp; sign documents
+          </div>
+        </div>
+      </div>
+      <div class="app-badge">beta</div>
+    </header>
+
+    <main class="app-main">
+      <section class="layout">
+        <!-- LEFT: controls -->
+        <aside class="sidebar panel">
+          <div class="panel-header">Document details</div>
+          <div class="panel-body">
+            <div class="field">
+              <label class="field-label" for="pdfFile">PDF file</label>
+              <input
+                id="pdfFile"
+                type="file"
+                accept="application/pdf"
+                class="field-input"
+              />
+              <p class="field-help">
+                Rate cons, BOLs, contracts – anything in PDF.
+              </p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="docTitle">Document title</label>
+              <input
+                id="docTitle"
+                type="text"
+                class="field-input"
+                placeholder="e.g. Load 12345 – Carrier Rate Confirmation"
+              />
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="docNotes">Notes / instructions</label>
+              <textarea
+                id="docNotes"
+                class="field-input field-textarea"
+                rows="3"
+                placeholder="Optional internal notes."
+              ></textarea>
+            </div>
+
+            <hr class="section-divider" />
+
+            <div class="field field-inline">
+              <div class="field-half">
+                <label class="field-label" for="signerName">Signer name</label>
+                <input
+                  id="signerName"
+                  type="text"
+                  class="field-input"
+                  placeholder="Required"
+                />
+              </div>
+              <div class="field-half">
+                <label class="field-label" for="signerTitle">
+                  Job title (optional)
+                </label>
+                <input
+                  id="signerTitle"
+                  type="text"
+                  class="field-input"
+                  placeholder="e.g. Dispatcher"
+                />
+              </div>
+            </div>
+
+            <p class="field-help">
+              Drag the cursive signature directly on the preview, then apply.
+            </p>
+
+            <div class="button-row">
+              <button id="applySignatureBtn" class="btn btn-primary" disabled>
+                Apply signature
+              </button>
+              <button id="downloadBtn" class="btn btn-secondary" disabled>
+                Download PDF
+              </button>
+            </div>
+
+            <div id="statusBar" class="status-bar status-info">
+              Load a PDF to get started.
+            </div>
+          </div>
+        </aside>
+
+        <!-- RIGHT: viewer -->
+        <section class="viewer panel">
+          <div class="panel-header">Preview &amp; signature placement</div>
+          <div class="panel-body viewer-body">
+            <div id="pdfPlaceholder" class="pdf-placeholder">
+              <p><strong>No document loaded.</strong></p>
+              <p>Choose a PDF on the left to preview and place your signature.</p>
+            </div>
+
+            <!-- PDF preview -->
+            <iframe
+              id="pdfFrame"
+              class="pdf-frame"
+              title="PDF preview"
+            ></iframe>
+
+            <!-- Draggable signature overlay -->
+            <div id="signatureOverlay" class="signature-overlay" style="display: none;">
+              <div class="signature-card">
+                <span id="signatureText" class="signature-text">Signature</span>
+                <span class="signature-hint">Drag me</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>MyFreightTracker PDF Studio (beta)</span>
+      <span class="footer-meta">
+        Local-only signing &middot; Not a legal e-signature service
+      </span>
+    </footer>
+  </div>
+
+  <!-- Local pdf-lib served from node_modules via /vendor/pdf-lib -->
+  <script src="/vendor/pdf-lib/pdf-lib.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+

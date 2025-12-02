@@ -1,0 +1,8 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="10" width="32" height="20" rx="4" fill="#0EA5E9" opacity="0.12" stroke="#0EA5E9" stroke-width="2"/>
+  <circle cx="14" cy="34" r="5" fill="#1f2937" stroke="#22C55E" stroke-width="2"/>
+  <circle cx="34" cy="34" r="5" fill="#1f2937" stroke="#22C55E" stroke-width="2"/>
+  <text x="6" y="24" font-size="10" fill="#22C55E" font-family="Arial Black">MFT</text>
+</svg>
+

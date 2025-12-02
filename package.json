@@ -1,0 +1,13 @@
+{
+  "name": "pdf-maker",
+  "version": "1.0.0",
+  "description": "MyFreightTracker PDF Studio - simple PDF viewer and signer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pdf-lib": "^1.17.1"
+  }
+}
